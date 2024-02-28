@@ -1,5 +1,5 @@
 package pizzaMakingStrategies;
 
-public enum cookingStyleType {
+public enum CookingStyleType {
 
 }

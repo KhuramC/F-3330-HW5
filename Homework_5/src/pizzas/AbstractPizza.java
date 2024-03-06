@@ -22,8 +22,28 @@ as an ArrayList and respective setter and getter methods
 	protected double cookingPrice;
 	
 	// Constructor
-	public AbstractPizza() {
+	public AbstractPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
+			ICookingStrategy cookingStrategy, double cookingPrice) {
+		super();
 		this.toppingList = new ArrayList<>(); // instantiate the toppingList as an ArrayList
+		this.priceWithoutToppings = priceWithoutToppings;
+		this.totalPrice = totalPrice;
+		this.pizzaOrderID = pizzaOrderID;
+		this.cookingStrategy = cookingStrategy;
+		this.cookingPrice = cookingPrice;
+	}
+
+	// copy constructor
+	public AbstractPizza(AbstractPizza p) {
+		this.toppingList = new ArrayList<>();
+		for (Toppings topping : p.toppingList) {
+			this.toppingList.add(topping);
+		}
+		this.priceWithoutToppings = p.getPriceWithoutToppings();
+		this.totalPrice = p.getTotalPrice();
+		this.pizzaOrderID = p.getPizzaOrderID();
+		this.cookingStrategy = p.getCookingStrategy();
+		this.cookingPrice = p.getCookingPrice();
 	}
 	
 	

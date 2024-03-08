@@ -59,10 +59,32 @@ public class PizzaOrder {
 	}
 	
 	
-	/*This method checks the pizzas in the pizzaOrderList and checks their cooking strategies. It returns
-	true if there are any pizzas without any assigned pizza cooking strategy. It returns false if there
-	are no pizzas without an assigned cooking strategy. */
+	/**
+	 * Private helper function to determine if a given pizza has a cooking strategy.
+	 * @param pizza to check cooking strategy
+	 * @return boolean for if pizza has a cooking strategy.
+	 */
+	private boolean hasCookingStrategy(AbstractPizza pizza) {
+		ICookingStrategy cookingStrategy = pizza.getCookingStrategy();
+		if(cookingStrategy instanceof BrickOvenCookingStrategy ||
+		   cookingStrategy instanceof ConventionalOvenCookingStrategy ||
+		   cookingStrategy instanceof MicrowaveCookingStrategy) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Checks all pizzas in pizzaOrderList for if a pizza does not have a cooking strategy. If a single pizza does not have a 
+	 * cooking strategy (i.e. the pizza is uncooked), true is returned. Otherwise, false is returned.
+	 * @return boolean for if there is any uncooked pizza
+	 */
 	public boolean isThereAnyUncookedPizza() {
+		for(AbstractPizza pizza : pizzaOrderList) {
+			if(!this.hasCookingStrategy(pizza)) {
+				return true;
+			}	
+		}
 		return false;
 	}
 	
@@ -71,7 +93,7 @@ public class PizzaOrder {
 	 * Calculates the total price of all pizzas in the pizzaOrderList given that all pizzas have a cooking strategy.
 	 * If a pizza does not have one, an Exception is thrown.
 	 * @return price of all pizzas in the pizzaOrderList
-	 * @throws Exception saying that there are uncooked pizzas
+	 * @throws Exception Says that there are uncooked pizzas
 	 */
 	public double checkout() throws Exception{
 		if(this.isThereAnyUncookedPizza()) {

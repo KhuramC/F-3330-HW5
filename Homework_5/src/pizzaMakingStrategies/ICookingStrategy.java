@@ -1,6 +1,10 @@
 package pizzaMakingStrategies;
 import pizzas.AbstractPizza;
 
+/**
+ * An interface that has methods to cook (i.e. assign a cooking strategy to) a pizza. It also has methods to return
+ * the corresponding CookingStyleType and CookingPrice. 
+ */
 public interface ICookingStrategy {
 	
 	
@@ -19,7 +23,7 @@ public interface ICookingStrategy {
 	
 	/**
 	 * The method to get the corresponding cooking price for a CookingStrategy.
-	 * @return
+	 * @return the corresponding cooking price.
 	 */
 	public double getCookingPrice();
 

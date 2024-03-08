@@ -3,7 +3,10 @@ package pizzas;
 import java.util.ArrayList;
 import java.util.List;
 
+import pizzaMakingStrategies.BrickOvenCookingStrategy;
+import pizzaMakingStrategies.ConventionalOvenCookingStrategy;
 import pizzaMakingStrategies.ICookingStrategy;
+import pizzaMakingStrategies.MicrowaveCookingStrategy;
 
 public abstract class AbstractPizza {
 /*Implement an abstract base class AbstractPizza with protected attributes/fields 
@@ -142,6 +145,20 @@ as an ArrayList and respective setter and getter methods
 		this.cookingStrategy = cookingStrategy;
 	}
 
+	
+	/**
+	 * Helper function to determine if a pizza has been cooked (has a cooking strategy).
+	 * @return boolean for if pizza has a cooking strategy.
+	 */
+	public boolean hasCookingStrategy() {
+		ICookingStrategy cookingStrategy = this.getCookingStrategy();
+		if(cookingStrategy instanceof BrickOvenCookingStrategy ||
+		   cookingStrategy instanceof ConventionalOvenCookingStrategy ||
+		   cookingStrategy instanceof MicrowaveCookingStrategy) {
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * @return the cookingPrice

@@ -1,5 +1,8 @@
 package pizzaMakingStrategies;
 
+/**
+ * An enum for the different ways to cook a pizza at FakeSpeare. The associated extra cooking price is given for each type.
+ */
 public enum CookingStyleType {
 	
 	MICROWAVE(1.0),
@@ -8,12 +11,12 @@ public enum CookingStyleType {
 
 	private double cookingPrice;
 	
-	//Constructor//
+
 	CookingStyleType(double cookingPrice) {
 		this.cookingPrice = cookingPrice;
 	}
 	
-	//Getter//
+
 	public double getCookingPrice() {
 		return cookingPrice;
 	}

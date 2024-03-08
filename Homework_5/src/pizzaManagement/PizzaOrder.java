@@ -67,20 +67,7 @@ public class PizzaOrder {
 	}
 	
 	
-	/**
-	 * Private helper function to determine if a given pizza has a cooking strategy.
-	 * @param pizza to check cooking strategy
-	 * @return boolean for if pizza has a cooking strategy.
-	 */
-	private boolean hasCookingStrategy(AbstractPizza pizza) {
-		ICookingStrategy cookingStrategy = pizza.getCookingStrategy();
-		if(cookingStrategy instanceof BrickOvenCookingStrategy ||
-		   cookingStrategy instanceof ConventionalOvenCookingStrategy ||
-		   cookingStrategy instanceof MicrowaveCookingStrategy) {
-			return true;
-		}
-		return false;
-	}
+
 	
 	/**
 	 * Checks all pizzas in pizzaOrderList for if a pizza does not have a cooking strategy. If a single pizza does not have a 
@@ -89,7 +76,7 @@ public class PizzaOrder {
 	 */
 	public boolean isThereAnyUncookedPizza() {
 		for(AbstractPizza pizza : pizzaOrderList) {
-			if(!this.hasCookingStrategy(pizza)) {
+			if(!pizza.hasCookingStrategy()) {
 				return true;
 			}	
 		}

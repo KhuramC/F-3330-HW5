@@ -1,9 +1,17 @@
 package pizzaManagement;
 import pizzas.*;
+import java.util.List;
 import pizzaMakingStrategies.*;
 
 public class PizzaOrder {
-
+	
+	
+	
+	private PizzaCookingFactory pizzaFactory;
+	private ICookingStrategy cookingStrategy;
+	private List<AbstractPizza> pizzaOrderList;
+	
+	
 	public PizzaOrder() {
 		// TODO Auto-generated constructor stub
 	}
@@ -59,12 +67,21 @@ public class PizzaOrder {
 	}
 	
 	
-	/*This method checks if there are any uncooked pizzas. If all pizzas are cooked, it calculates the total
-	price of all pizzas and returns the total cart price. However, if there is at least one uncooked pizza
-	it throws an exception (Use the general Exception class). The checkout method calls the
-	isThereAnyUncookedPizza method to check for uncooked pizzas and throws an exception*/
+	/**
+	 * Calculates the total price of all pizzas in the pizzaOrderList given that all pizzas have a cooking strategy.
+	 * If a pizza does not have one, an Exception is thrown.
+	 * @return price of all pizzas in the pizzaOrderList
+	 * @throws Exception saying that there are uncooked pizzas
+	 */
 	public double checkout() throws Exception{
-		return -1.0;
+		if(this.isThereAnyUncookedPizza()) {
+			throw new Exception("There are uncooked pizzas! Cook all the pizzas next time.");
+		}
+		double total = 0.0;
+		for(AbstractPizza pizza : pizzaOrderList) {
+			total+= pizza.getTotalPrice();
+		}
+		return total;
 	}
 	
 	

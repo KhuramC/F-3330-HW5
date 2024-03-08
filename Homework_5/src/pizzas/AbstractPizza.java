@@ -170,6 +170,6 @@ as an ArrayList and respective setter and getter methods
 	totalPrice of the pizza using priceWithoutToppings attribute and the prices of each
 	topping in the toppingsList. You can use this method on each update you make with the
 	pizza.*/
-	protected abstract double updatePizzaPrice();
+	public abstract double updatePizzaPrice();
 	
 }

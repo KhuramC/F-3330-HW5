@@ -1,12 +1,26 @@
 package pizzaMakingStrategies;
-import pizzas.*;
+import pizzas.AbstractPizza;
 
 public interface ICookingStrategy {
 	
-	/* sets the cookingPrice,
-	cookingStrategy and updates the pizzaPrice of the pizza that is being cooked and passed as a
-	parameter. There could only be one cooking strategy selected for a pizza. The cooking strategy
-	changes the pizza price */
+	
+	/**
+	 * The method to cook a pizza a certain way (adding some extra dollars to the price of the pizza).
+	 * @param pizza to be cooked
+	 * @return boolean whether cooking was successful.
+	 */
 	public boolean cook(AbstractPizza pizza);
+	
+	/**
+	 * The method to get the corresponding CookingStyleType Enum for a CookingStrategy.
+	 * @return the corresponding CookingStyleType
+	 */
+	public CookingStyleType getCookingStyleType();
+	
+	/**
+	 * The method to get the corresponding cooking price for a CookingStrategy.
+	 * @return
+	 */
+	public double getCookingPrice();
 
 }

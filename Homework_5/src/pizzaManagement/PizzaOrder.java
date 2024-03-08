@@ -16,6 +16,14 @@ public class PizzaOrder {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public ICookingStrategy getCookingStrategy() {
+		return cookingStrategy;
+	}
+
+	public void setCookingStrategy(ICookingStrategy cookingStrategy) {
+		this.cookingStrategy = cookingStrategy;
+	}
+	
 	
 	//gets the pizza order with the given pizza order ID and prints the toppings of that order //
 	public void printListOfToppingsByPizzaOrderID(int orderID) {

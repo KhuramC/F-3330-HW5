@@ -67,7 +67,15 @@ public class PizzaOrder {
 	
 	// This method creates a new pizza with the given PizzaType and adds it to the pizzaOrderList.//
 	public boolean addPizzaToCart(PizzaType pizzaType) {
-		 return false;
+		boolean pizzaAdded = false;
+		AbstractPizza pizza =  pizzaFactory.createPizza(pizzaType);
+		pizzaOrderList.add(pizza);
+		
+		if(pizzaOrderList.getLast().getPizzaOrderID() == pizza.getPizzaOrderID()) {
+			pizzaAdded = true;
+		}
+			
+		return pizzaAdded;
 		 
 	}
 	

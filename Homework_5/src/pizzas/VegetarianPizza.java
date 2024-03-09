@@ -48,10 +48,17 @@ public class VegetarianPizza extends AbstractPizza {
 		this.totalPrice = toppingsPrice + priceWithoutToppings;
 		return this.totalPrice;
 	}
+	
+	/**
+	 * calculates and updates the 
+	 * totalPrice of the pizza using priceWithoutToppings attribute and the prices of each 
+	 * topping in the toppingsList. You can use this method on each update you make with the 
+	 * pizza.
+	 * @return returns the final pizza price.
+	 */
 	@Override
 	public double updatePizzaPrice() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.addToppingsToPrice(pizzaPrepCost) + this.getCookingPrice();
 	}
 
 }

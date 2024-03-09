@@ -32,7 +32,14 @@ public class PizzaOrder {
 	
 	//This method prints the pizzas in the pizzaOrderList//
 	public void printPizzaOrderCart(int orderID) {
-		
+		for(AbstractPizza pizza : pizzaOrderList) {
+			System.out.println(pizza.toString());
+//			if(pizza.getPizzaOrderID() == orderID) {
+//				System.out.println("Order ID: " + orderID + "found!");
+//				System.out.println(pizza.toString());
+//				
+//			}
+		}
 	}
 	
 	

@@ -1,5 +1,7 @@
 package pizzaManagement;
 import pizzas.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import pizzaMakingStrategies.*;
 
@@ -13,7 +15,21 @@ public class PizzaOrder {
 	
 	
 	public PizzaOrder() {
-		// TODO Auto-generated constructor stub
+		this.pizzaOrderList = new ArrayList<>();
+	}
+	
+	/**
+	 * @return the pizzaOrderList
+	 */
+	public List<AbstractPizza> getPizzaOrderList() {
+		return pizzaOrderList;
+	}
+
+	/**
+	 * @param pizzaOrderList the pizzaOrderList to set
+	 */
+	public void setPizzaOrderList(List<AbstractPizza> pizzaOrderList) {
+		this.pizzaOrderList = pizzaOrderList;
 	}
 	
 	public ICookingStrategy getCookingStrategy() {

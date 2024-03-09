@@ -3,10 +3,7 @@ package pizzas;
 import java.util.ArrayList;
 import java.util.List;
 
-import pizzaMakingStrategies.BrickOvenCookingStrategy;
-import pizzaMakingStrategies.ConventionalOvenCookingStrategy;
 import pizzaMakingStrategies.ICookingStrategy;
-import pizzaMakingStrategies.MicrowaveCookingStrategy;
 
 public abstract class AbstractPizza {
 /*Implement an abstract base class AbstractPizza with protected attributes/fields 
@@ -20,20 +17,34 @@ as an ArrayList and respective setter and getter methods
 	protected double priceWithoutToppings;
 	protected double totalPrice;
 	protected int pizzaOrderID;
-	protected static int orderIDCounter;
-	protected ICookingStrategy cookingStrategy;
-	protected double cookingPrice;
+	protected static int orderIDCounter = 1;
+	protected ICookingStrategy cookingStrategy = null;
+	protected double cookingPrice = 0.0;
 	
-	// Constructor
-	public AbstractPizza(List<Toppings> toppingList, double priceWithoutToppings, double totalPrice, int pizzaOrderID,
-			ICookingStrategy cookingStrategy, double cookingPrice) {
+	
+	/**
+	 * Basic Constructor for creating an AbstractPizza(assumedly with no toppings).
+	 * @param priceWithoutToppings price of pizza not including toppings
+	 * @param pizzaOrderID unique ID of the pizza
+	 */
+	public AbstractPizza(double priceWithoutToppings, int pizzaOrderID) {
 		super();
 		this.toppingList = new ArrayList<>(); // instantiate the toppingList as an ArrayList
 		this.priceWithoutToppings = priceWithoutToppings;
-		this.totalPrice = totalPrice;
 		this.pizzaOrderID = pizzaOrderID;
-		this.cookingStrategy = cookingStrategy;
-		this.cookingPrice = cookingPrice;
+	}
+	/**
+	 * Constructor for creating an AbstractPizza with toppings. Updates the total price based on the toppings provided.
+	 * @param toppingsList list of toppings to add
+	 * @param priceWithoutToppings price of pizza not including toppings
+	 * @param pizzaOrderID unique ID of the pizza
+	 */
+	public AbstractPizza(List<Toppings> toppingsList, double priceWithoutToppings, int pizzaOrderID) {
+		super();
+		this.toppingList = toppingsList; 
+		this.priceWithoutToppings = priceWithoutToppings;
+		this.pizzaOrderID = pizzaOrderID;
+		this.addToppingsToPrice(priceWithoutToppings);
 	}
 
 	// copy constructor
@@ -129,6 +140,12 @@ as an ArrayList and respective setter and getter methods
 		AbstractPizza.orderIDCounter = orderIDCounter;
 	}
 
+	/**
+	 * Increments the OrderIDCounter (to be used after creating a Pizza at the current counter). 
+	 */
+	public static void incrementOrderIDCounter() {
+		orderIDCounter++;
+	}
 
 	/**
 	 * @return the cookingStrategy
@@ -151,10 +168,8 @@ as an ArrayList and respective setter and getter methods
 	 * @return boolean for if pizza has a cooking strategy.
 	 */
 	public boolean hasCookingStrategy() {
-		ICookingStrategy cookingStrategy = this.getCookingStrategy();
-		if(cookingStrategy instanceof BrickOvenCookingStrategy ||
-		   cookingStrategy instanceof ConventionalOvenCookingStrategy ||
-		   cookingStrategy instanceof MicrowaveCookingStrategy) {
+		ICookingStrategy cookingStrategy = this.cookingStrategy;
+		if(cookingStrategy != null) {
 			return true;
 		}
 		return false;

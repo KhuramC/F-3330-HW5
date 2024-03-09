@@ -30,10 +30,23 @@ public class SupremePizza extends AbstractPizza {
 		super(defaultToppings,pizzaPrepCost, pizzaOrderID);
 	}
 
+	/**
+	 * calculates the total price of the pizza using
+	 * priceWithoutToppings and the prices of each topping in the toppingsList. It also assigns
+	 * totalPrice attribute to the calculated total price, and priceWithoutToppings attribute to
+	 * the passed parameter. This could be called once to add the default toppings.
+	 * @param priceWithoutToppings price without toppings
+	 * @return the total price
+	 */
 	@Override
 	protected double addToppingsToPrice(double priceWithoutToppings) {
-		// TODO Auto-generated method stub
-		return 0;
+		this.priceWithoutToppings = priceWithoutToppings;
+		double toppingsPrice = 0;
+		for (Toppings topping : toppingList) {
+			toppingsPrice += topping.getToppingPrice();
+		}
+		this.totalPrice = toppingsPrice + priceWithoutToppings;
+		return this.totalPrice;
 	}
 
 	@Override

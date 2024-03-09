@@ -8,11 +8,14 @@ public class PizzaCookingFactory {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	/* creates an AbstractPizza instance and
-	instantiates it according to the pizzaType parameter. It also sets the pizzaOrderID of the pizza
-	using the current orderIDCounter of the pizza. The orderIDCounter will be incremented and
-	assigned automatically on every creation of pizza, to assign unique pizza order IDs. */
+	/**
+	 * creates an AbstractPizza instance and
+	 * instantiates it according to the pizzaType parameter. It also sets the pizzaOrderID of the pizza
+	 * using the current orderIDCounter of the pizza. The orderIDCounter will be incremented and
+	 * assigned automatically on every creation of pizza, to assign unique pizza order IDs.
+	 * @param pizzaType
+	 * @return pizza
+	 */
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 		AbstractPizza pizza = null;
 		

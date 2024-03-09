@@ -36,27 +36,17 @@ public class BrickOvenCookingStrategy implements ICookingStrategy {
 	
 
 	/**
-	 * Sets the cookingStrategy and associated cookingPrice for the pizza and then updates the priceWithoutToppings and totalPrice.
-	 * If there is already a cooking strategy selected, a message is given and false is returned.
+	 * Sets the cookingStrategy and associated cookingPrice for the pizza and then updates the totalPrice.
 	 * @param pizza to be cooked
-	 * @return boolean for whether the pizza ended up getting cooked or not.
+	 * @return boolean for whether the cooking was successful(shouldn't really ever occur
 	 */
 	@Override
 	public boolean cook(AbstractPizza pizza) {
-		if(pizza.hasCookingStrategy()) {
-			System.out.println("The pizza provided already has been cooked/has a cooking strategy.");
-			return false;
-		}
-		
+
 		pizza.setCookingStrategy(new BrickOvenCookingStrategy());
 		pizza.setCookingPrice(this.getCookingPrice());
 		
-		double pizzaBasePrice = pizza.getPriceWithoutToppings();
-		double newPizzaPrice = pizzaBasePrice + this.getCookingPrice(); //add cooking price//
-		pizza.setPriceWithoutToppings(newPizzaPrice);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-
-		
-		pizza.updatePizzaPrice();
+		pizza.setTotalPrice(pizza.updatePizzaPrice());
 		return true;
 	}
 

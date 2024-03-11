@@ -120,7 +120,17 @@ public class PizzaOrder {
 	removed, it also updates the pizza price and returns true. If the topping doesn’t exist in the
 	topping list of the pizza and cannot be removed, it returns false. */
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
-		return false;
+		for (AbstractPizza pizza : pizzaOrderList) {
+	        if (pizza.getPizzaOrderID() == orderID) {
+	            if (pizza.getToppingList().remove(topping)) {
+	                pizza.updatePizzaPrice();
+	                return true; // Return true (topping removed successfully)
+	            } else {
+	                return false; // Return false meaning that the topping is not on found on the Pizza
+	            }
+	        }
+	    }
+	    return false; // Return false, meaning that no Pizza was found with the given OrderID
 	}
 	
 	

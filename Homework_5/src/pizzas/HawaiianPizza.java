@@ -58,6 +58,7 @@ public class HawaiianPizza extends AbstractPizza {
 	 */
 	@Override
 	public double updatePizzaPrice() {
-		return this.addToppingsToPrice(pizzaPrepCost) + this.getCookingPrice();
+		this.totalPrice = this.addToppingsToPrice(pizzaPrepCost) + this.getCookingPrice();
+		return this.totalPrice;
 	}
 }

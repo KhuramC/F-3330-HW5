@@ -105,13 +105,13 @@ public class PizzaOrder {
 	            if (!pizza.getToppingList().contains(topping)) {
 	                pizza.getToppingList().add(topping);
 	                pizza.updatePizzaPrice();
-	                return true;
+	                return true; // Return true (topping added successfully)
 	            } else {
-	                return false;
+	                return false; // Return false meaning that the topping already exists
 	            }
 	        }
 	    }
-	    return false;
+	    return false; // Return false, meaning that no Pizza was found with the given OrderID
 	}
 	
 	

@@ -2,7 +2,6 @@ package pizzaManagement;
 import pizzas.*;
 
 public class PizzaCookingFactory {
-	static int orderIDCounter = 1;
 
 	public PizzaCookingFactory() {
 		// TODO Auto-generated constructor stub
@@ -18,6 +17,7 @@ public class PizzaCookingFactory {
 	 */
 	public AbstractPizza createPizza(PizzaType pizzaType) {
 		AbstractPizza pizza = null;
+		int orderIDCounter = AbstractPizza.getOrderIDCounter();
 		
 		switch(pizzaType) {
 		case MARGHERITA:
@@ -35,8 +35,8 @@ public class PizzaCookingFactory {
 		}
 		
 		if (pizza != null) {
-            pizza.setPizzaOrderID(orderIDCounter);
             orderIDCounter++; // Increment for the next order
+            pizza.setPizzaOrderID(orderIDCounter);
         }
 		
 		return pizza;

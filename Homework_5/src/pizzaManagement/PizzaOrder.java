@@ -65,18 +65,18 @@ public class PizzaOrder {
 	public void printPizzaOrderCart(int orderID) {
 		for(AbstractPizza pizza : pizzaOrderList) {
 			System.out.println(pizza.toString());
-//			if(pizza.getPizzaOrderID() == orderID) {
-//				System.out.println("Order ID: " + orderID + "found!");
-//				System.out.println(pizza.toString());
-//				
-//			}
 		}
 	}
 	
 	
 	//This method finds the pizza order with the given pizza order id and returns it.//
 	public AbstractPizza getPizzaByOrderID(int orderID) {
-		return null;
+		for(AbstractPizza pizza : pizzaOrderList) {
+			if(pizza.getPizzaOrderID() == orderID) {
+				return pizza;
+			}
+		}
+		return null; // No pizza with given orderID
 		
 	}
 	
@@ -171,7 +171,7 @@ public class PizzaOrder {
 		}
 		double total = 0.0;
 		for(AbstractPizza pizza : pizzaOrderList) {
-			total+= pizza.getTotalPrice();
+			total += pizza.getTotalPrice();
 		}
 		return total;
 	}

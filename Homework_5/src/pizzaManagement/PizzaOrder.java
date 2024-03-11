@@ -55,7 +55,7 @@ public class PizzaOrder {
 	            for (Toppings topping : toppingsList) {
 	                System.out.println("- " + topping.name());
 	            }
-	            return; // Stop searching once found
+	            return; // returns once found
 	        }
 	    }
 	    System.out.println("Order ID " + orderID + " NOT FOUND ");
@@ -95,10 +95,14 @@ public class PizzaOrder {
 	}
 	
 	
-	/*This method finds the pizza order with the given ID
+	/**This method finds the pizza order with the given ID
 	and adds the given topping to its topping list if it doesn’t already exist in the list. If the given
 	topping is added, it also updates the pizza price and returns true. If the topping already exists in
-	the topping list of the pizza, it returns false */
+	the topping list of the pizza, it returns false
+	 * 
+	 * @param orderID & topping 
+	 * @return True upon success, otherwise false (Topping already exists / no pizza found with OrderID)
+	 */
 	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
 		for (AbstractPizza pizza : pizzaOrderList) {
 	        if (pizza.getPizzaOrderID() == orderID) {
@@ -115,10 +119,14 @@ public class PizzaOrder {
 	}
 	
 	
-	/* finds the pizza order with the given ID
+	/** finds the pizza order with the given ID
 	and removes the given topping from its topping list if it exists in the list. If the given topping is
 	removed, it also updates the pizza price and returns true. If the topping doesn’t exist in the
-	topping list of the pizza and cannot be removed, it returns false. */
+	topping list of the pizza and cannot be removed, it returns false.
+	 * 
+	 * @param orderID & topping
+	 * @return True upon success, otherwise false (Topping not found on pizza / no pizza found with OrderID)
+	 */
 	public boolean removeToppingFromPizza(int orderID, Toppings topping) {
 		for (AbstractPizza pizza : pizzaOrderList) {
 	        if (pizza.getPizzaOrderID() == orderID) {
@@ -169,10 +177,36 @@ public class PizzaOrder {
 	}
 	
 	
-	/*This method gets the pizza with the given order ID, instantiates the cookingStrategy according to the cookingStrategyType
-	parameter. Calls the cook function for the pizza of the pizza order with the given order ID. */
+	/** This method gets the pizza with the given order ID, instantiates the cookingStrategy according to the cookingStrategyType
+	parameter. Calls the cook function for the pizza of the pizza order with the given order ID.
+	 * 
+	 * @param orderID & cookingStrategyType.
+	 * @return True upon success, otherwise false (Order ID not Found / Invalid cookingStrategy.)
+	 */
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
-		return false;
+		for (AbstractPizza pizza : pizzaOrderList) {
+	        if (pizza.getPizzaOrderID() == orderID) {
+	            ICookingStrategy cookingStrategy; // Instatiate cookingStrategy
+	            switch (cookingStrategyType) {
+	                case MICROWAVE:
+	                    cookingStrategy = new MicrowaveCookingStrategy();
+	                    break;
+	                case CONVENTIONAL_OVEN:
+	                    cookingStrategy = new ConventionalOvenCookingStrategy();
+	                    break;
+	                case BRICK_OVEN:
+	                    cookingStrategy = new BrickOvenCookingStrategy();
+	                    break;
+	                default:
+	                    return false; // Return false if it is an Invalid cookingStrategy type.
+	            }
+	            pizza.setCookingStrategy(cookingStrategy);
+	            pizza.setCookingPrice(cookingStrategy.getCookingPrice());
+	            pizza.setTotalPrice(pizza.updatePizzaPrice());
+	            return true; // Cooking strategy set successfully
+	        }
+	    }
+	    return false; // Return false, meaning that no Pizza was found with the given OrderID
 	}
 	
 	

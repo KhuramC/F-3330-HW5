@@ -41,7 +41,12 @@ public class PizzaOrder {
 	}
 	
 	
-	//gets the pizza order with the given pizza order ID and prints the toppings of that order //
+	/**
+	 * Prints the toppings that correlate with the orderID that is given. If the order ID is not found, it
+	 * prints a statement stating that it cannot be found. If the Order ID is found, simply return.
+	 * 
+	 * @param orderID
+	 */
 	public void printListOfToppingsByPizzaOrderID(int orderID) {
 		for (AbstractPizza pizza : pizzaOrderList) {
 	        if (pizza.getPizzaOrderID() == orderID) {

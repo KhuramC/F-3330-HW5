@@ -100,7 +100,18 @@ public class PizzaOrder {
 	topping is added, it also updates the pizza price and returns true. If the topping already exists in
 	the topping list of the pizza, it returns false */
 	public boolean addNewToppingToPizza(int orderID, Toppings topping) {
-		return false;
+		for (AbstractPizza pizza : pizzaOrderList) {
+	        if (pizza.getPizzaOrderID() == orderID) {
+	            if (!pizza.getToppingList().contains(topping)) {
+	                pizza.getToppingList().add(topping);
+	                pizza.updatePizzaPrice();
+	                return true;
+	            } else {
+	                return false;
+	            }
+	        }
+	    }
+	    return false;
 	}
 	
 	

@@ -43,7 +43,17 @@ public class PizzaOrder {
 	
 	//gets the pizza order with the given pizza order ID and prints the toppings of that order //
 	public void printListOfToppingsByPizzaOrderID(int orderID) {
-		
+		for (AbstractPizza pizza : pizzaOrderList) {
+	        if (pizza.getPizzaOrderID() == orderID) {
+	            System.out.println("Toppings for Pizza Order ID " + orderID + ":");
+	            List<Toppings> toppingsList = pizza.getToppingList();
+	            for (Toppings topping : toppingsList) {
+	                System.out.println("- " + topping.name());
+	            }
+	            return; // Stop searching once found
+	        }
+	    }
+	    System.out.println("Order ID " + orderID + " NOT FOUND ");
 	}
 	
 	//This method prints the pizzas in the pizzaOrderList//

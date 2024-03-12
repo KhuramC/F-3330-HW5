@@ -16,6 +16,7 @@ public class PizzaOrder {
 	
 	public PizzaOrder() {
 		this.pizzaOrderList = new ArrayList<>();
+		this.pizzaFactory = new PizzaCookingFactory();
 	}
 	
 	/**

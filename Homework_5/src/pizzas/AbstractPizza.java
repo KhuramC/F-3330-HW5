@@ -17,7 +17,7 @@ as an ArrayList and respective setter and getter methods
 	protected double priceWithoutToppings;
 	protected double totalPrice;
 	protected int pizzaOrderID;
-	protected static int orderIDCounter = 1;
+	protected static int orderIDCounter = 0;
 	protected ICookingStrategy cookingStrategy = null;
 	protected double cookingPrice = 0.0;
 	
@@ -32,6 +32,7 @@ as an ArrayList and respective setter and getter methods
 		this.toppingList = new ArrayList<>(); // instantiate the toppingList as an ArrayList
 		this.priceWithoutToppings = priceWithoutToppings;
 		this.pizzaOrderID = pizzaOrderID;
+		orderIDCounter++;
 	}
 	/**
 	 * Constructor for creating an AbstractPizza with toppings. Updates the total price based on the toppings provided.
@@ -45,6 +46,7 @@ as an ArrayList and respective setter and getter methods
 		this.priceWithoutToppings = priceWithoutToppings;
 		this.pizzaOrderID = pizzaOrderID;
 		this.addToppingsToPrice(priceWithoutToppings);
+		orderIDCounter++;
 	}
 
 	// copy constructor

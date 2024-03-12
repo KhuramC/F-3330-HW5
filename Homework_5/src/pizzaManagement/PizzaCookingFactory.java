@@ -35,7 +35,6 @@ public class PizzaCookingFactory {
 		}
 		
 		if (pizza != null) {
-            orderIDCounter++; // Increment for the next order
             pizza.setPizzaOrderID(orderIDCounter);
         }
 		

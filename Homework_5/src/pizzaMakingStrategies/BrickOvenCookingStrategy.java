@@ -33,8 +33,6 @@ public class BrickOvenCookingStrategy implements ICookingStrategy {
 		return this.getCookingStyleType().getCookingPrice();
 	}
 	
-	
-
 	/**
 	 * Sets the cookingStrategy and associated cookingPrice for the pizza and then updates the totalPrice.
 	 * @param pizza to be cooked
@@ -49,10 +47,5 @@ public class BrickOvenCookingStrategy implements ICookingStrategy {
 		pizza.setTotalPrice(pizza.updatePizzaPrice());
 		return true;
 	}
-
-
-
-
-	
 
 }

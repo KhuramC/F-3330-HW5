@@ -17,7 +17,7 @@ as an ArrayList and respective setter and getter methods
 	protected double priceWithoutToppings;
 	protected double totalPrice;
 	protected int pizzaOrderID;
-	protected static int orderIDCounter = 0;
+	protected static int orderIDCounter = 1;
 	protected ICookingStrategy cookingStrategy = null;
 	protected double cookingPrice = 0.0;
 	

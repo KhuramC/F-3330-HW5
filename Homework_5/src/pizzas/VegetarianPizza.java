@@ -61,5 +61,11 @@ public class VegetarianPizza extends AbstractPizza {
 		this.totalPrice = this.addToppingsToPrice(pizzaPrepCost) + this.getCookingPrice();
 		return this.totalPrice;
 	}
+	@Override
+	public String toString() {
+		return "Vegetarian Pizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
+				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
+	}
 
 }

@@ -60,5 +60,11 @@ public class MargheritaPizza extends AbstractPizza {
 		this.totalPrice = this.addToppingsToPrice(pizzaPrepCost) + this.getCookingPrice();
 		return this.totalPrice;
 	}
+	@Override
+	public String toString() {
+		return "Margherita Pizza [toppingList=" + toppingList + ", priceWithoutToppings=" + priceWithoutToppings
+				+ ", totalPrice=" + totalPrice + ", pizzaOrderID=" + pizzaOrderID + ", cookingStrategy="
+				+ cookingStrategy + ", cookingPrice=" + cookingPrice + "]";
+	}
 
 }

@@ -49,7 +49,7 @@ public class MicrowaveCookingStrategy implements ICookingStrategy {
 	@Override
 	public boolean cook(AbstractPizza pizza) {
 
-		pizza.setCookingStrategy(new BrickOvenCookingStrategy());
+		pizza.setCookingStrategy(new MicrowaveCookingStrategy());
 		pizza.setCookingPrice(this.getCookingPrice());
 		
 		pizza.setTotalPrice(pizza.updatePizzaPrice());

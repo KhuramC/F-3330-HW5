@@ -47,7 +47,7 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy {
 	@Override
 	public boolean cook(AbstractPizza pizza) {
 
-		pizza.setCookingStrategy(new BrickOvenCookingStrategy());
+		pizza.setCookingStrategy(new ConventionalOvenCookingStrategy());
 		pizza.setCookingPrice(this.getCookingPrice());
 		
 		pizza.setTotalPrice(pizza.updatePizzaPrice());

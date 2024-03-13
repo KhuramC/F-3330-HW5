@@ -62,7 +62,10 @@ public class PizzaOrder {
 	    System.out.println("Order ID " + orderID + " NOT FOUND ");
 	}
 	
-	//This method prints the pizzas in the pizzaOrderList//
+	/**
+	 * This method prints the pizzas in the pizzaOrderList.
+	 * @param orderID
+	 */
 	public void printPizzaOrderCart(int orderID) {
 		for(AbstractPizza pizza : pizzaOrderList) {
 			System.out.println(pizza.toString());
@@ -70,7 +73,11 @@ public class PizzaOrder {
 	}
 	
 	
-	//This method finds the pizza order with the given pizza order id and returns it.//
+	/**
+	 * This method finds the pizza order with the given pizza orderID in the pizzaOrderList and returns it. 
+	 * @param orderID
+	 * @return pizza when found, null otherwise.
+	 */
 	public AbstractPizza getPizzaByOrderID(int orderID) {
 		for(AbstractPizza pizza : pizzaOrderList) {
 			if(pizza.getPizzaOrderID() == orderID) {
@@ -81,13 +88,17 @@ public class PizzaOrder {
 		
 	}
 	
-	// This method creates a new pizza with the given PizzaType and adds it to the pizzaOrderList.//
+	/**
+	 * This method creates a new pizza with the given PizzaType and adds it to the pizzaOrderList.
+	 * @param pizzaType
+	 * @return True if last pizza added is current pizza, false otherwise.
+	 */
 	public boolean addPizzaToCart(PizzaType pizzaType) {
 		boolean pizzaAdded = false;
 		AbstractPizza pizza =  pizzaFactory.createPizza(pizzaType);
 		pizzaOrderList.add(pizza);
 		
-		if(pizzaOrderList.getLast().getPizzaOrderID() == pizza.getPizzaOrderID()) {
+		if(pizzaOrderList.getLast().getPizzaOrderID() == pizza.getPizzaOrderID()) { // last pizza is new pizza added
 			pizzaAdded = true;
 		}
 			

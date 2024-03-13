@@ -14,7 +14,10 @@ public class BrickOvenCookingStrategy implements ICookingStrategy {
 	public BrickOvenCookingStrategy() {
 	}
 	
-	
+	public String toString() {
+	    return "Brick Oven Cooking Strategy";
+	}
+
 	/**
 	 * Returns the associated CookingStyleType of brick oven cooking.
 	 * @return BRICK_OVEN enum

@@ -16,6 +16,10 @@ public class MicrowaveCookingStrategy implements ICookingStrategy {
 	}
 
 	
+	@Override
+	public String toString() {
+	    return "Microwave Cooking Strategy";
+	}
 
 	/**
 	 * Returns the associated CookingStyleType of microwave cooking.

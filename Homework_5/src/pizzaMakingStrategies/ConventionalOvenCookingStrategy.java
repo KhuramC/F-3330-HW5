@@ -15,7 +15,11 @@ public class ConventionalOvenCookingStrategy implements ICookingStrategy {
 	public ConventionalOvenCookingStrategy() {
 	}
 
-	
+	@Override
+	public String toString() {
+	    return "Conventional Oven Cooking Strategy";
+	}
+
 	/**
 	 * Returns the associated CookingStyleType of regular oven cooking.
 	 * @return CONVENTIONAL_OVEN enum

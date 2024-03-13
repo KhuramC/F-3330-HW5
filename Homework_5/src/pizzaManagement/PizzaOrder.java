@@ -198,7 +198,7 @@ public class PizzaOrder {
 	public boolean selectCookingStrategyByPizzaOrderID(int orderID, CookingStyleType cookingStrategyType) {
 		for (AbstractPizza pizza : pizzaOrderList) {
 	        if (pizza.getPizzaOrderID() == orderID) {
-	            ICookingStrategy cookingStrategy; // Instatiate cookingStrategy
+	            ICookingStrategy cookingStrategy; // Instantiating cookingStrategy
 	            switch (cookingStrategyType) {
 	                case MICROWAVE:
 	                    cookingStrategy = new MicrowaveCookingStrategy();
@@ -210,15 +210,21 @@ public class PizzaOrder {
 	                    cookingStrategy = new BrickOvenCookingStrategy();
 	                    break;
 	                default:
-	                    return false; // Return false if it is an Invalid cookingStrategy type.
+	                    return false; // Return false (Invalid cookingStrategy type)
 	            }
 	            pizza.setCookingStrategy(cookingStrategy);
 	            pizza.setCookingPrice(cookingStrategy.getCookingPrice());
-	            pizza.setTotalPrice(pizza.updatePizzaPrice());
-	            return true; // Cooking strategy set successfully
+	            
+	            // Cook the pizza using the cooking strategy
+	            if (cookingStrategy.cook(pizza)) {
+	                return true; // Return true (cookingStrategy success)
+	            } else {
+	                return false; // Return false (error occured when using the cookingStrategy)
+	            }
 	        }
 	    }
 	    return false; // Return false, meaning that no Pizza was found with the given OrderID
+
 	}
 	
 	

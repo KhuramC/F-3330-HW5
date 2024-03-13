@@ -19,4 +19,4 @@ To run this project, you need to have Java installed on your system and clone th
 Alon Barzilay  
 Hipolito Sanchez  
 Khuram Choudhry  
-Trenton Roney  
+Trenton Roney  - Implemented 'selectCookingStrategyByPizzaOrderID' , 'addNewToppingToPizza' , 'removeToppingFromPizza' , and 'printListOfToppingsByPizzaOrderID' methods in the PizzaOrder class. Also implemented the code for Main.java to be used for testing purposes.

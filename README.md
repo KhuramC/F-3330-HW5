@@ -16,7 +16,7 @@ Java 21 and its standard library.
 To run this project, you need to have Java installed on your system and clone the project from this repository. You can compile the source files using Eclipse.
 
 ## Team Members
-Alon Barzilay  
+Alon Barzilay  - Implemented toppings and pizzaType enums with constructors, getters, and setter methods, addPizzaToCart, and printPizzaOrderCart.
 
 Hipolito Sanchez - Implemented 'addToppingsToPrice, updatePizzaPrice, pizzaOrderList, createPizza, Abstract Pizza Subclass ToStrings.
 
